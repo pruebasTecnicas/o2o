@@ -1,0 +1,17 @@
+<h1>Recipes
+    <span *ngIf="apiService.searchWord!=''">
+        like {{apiService.searchWord}}
+    </span>
+</h1>
+
+<div class="card-columns">
+    <div class="card" *ngFor="let recipe of recipes | filter:'title':apiService.searchWord; let i = index">
+        <img class="card-img-top " [src]="recipe.thumbnail?recipe.thumbnail: '../../../assets/noimage.png' " alt=" ">
+        <div class="card-body ">
+            <h3 class="card-title ">{{recipe.title}}</h3>
+            <h4>Ingredients:</h4>
+            <p class="card-text ">{{recipe.ingredients}}</p>
+            <a [href]="recipe.href " class="badge badge-pill badge-primary" target="-blank ">Go to recipe</a>
+        </div>
+    </div>
+</div>
